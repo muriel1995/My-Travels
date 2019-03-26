@@ -1,0 +1,44 @@
+import React from "react";
+import Travel from "./Travel"
+// array Travels.js
+const travels = [
+    {
+        destination : "earth",
+        country : "loin",
+        distance : "sun",
+        photo : "https://cdn.pixabay.com/photo/2011/12/13/14/31/earth-11015_960_720.jpg"
+    },
+    {
+    
+        destination : "And that...",
+        country : "dream",
+        distance : "moon",
+        photo : "https://www.visa-algerie.com/wp-content/uploads/2018/09/voyage.jpg"
+    },
+    {
+    
+        destination : "And Other...",
+        country : "surprising",
+        distance : "under the sea",
+        photo : "data:image/jpeg;base64,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"
+    },
+    {
+    
+        destination : "And the Last...",
+        country : "Home",
+        distance : "Here",
+        photo : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqQ6yvdL7H1DwblcQy6QquSt_VEygNocGsUY4h1Vg4h1HvFRET"
+    },
+    ];
+// 
+const Travels = () => (
+  <div>
+    {travels.map((travel, idx) => (
+  <Travel key={idx} travel={travel.destination} photo={travel.photo} distance={travel.distance} country={travel.country} />
+))}
+  </div>
+);
+  
+
+
+export default Travels;
